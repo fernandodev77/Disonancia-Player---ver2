@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disonancia Player</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="player-container" id="player-container">
+            <div class="intro-screen" id="intro-screen">
+                <div class="album-cover">
+                    <img src="./albumcover/cover.jpg" alt="Portada del álbum" id="album-cover-img">
+                </div>
+                <div class="song-info">
+                    <h1 id="song-title">Título de la Canción</h1>
+                    <h2 id="artist-name">Nombre del Artista</h2>
+                </div>
+                <button id="play-btn" class="play-btn">
+                    <i class="fas fa-play"></i> Reproducir
+                </button>
+                <div class="countdown" id="countdown">
+                    <h3>Lanzamiento en:</h3>
+                    <div class="countdown-timer" id="countdown-timer">
+                        <div class="time-block">
+                            <span id="days">00</span>
+                            <span class="time-label">Días</span>
+                        </div>
+                        <div class="time-block">
+                            <span id="hours">00</span>
+                            <span class="time-label">Horas</span>
+                        </div>
+                        <div class="time-block">
+                            <span id="minutes">00</span>
+                            <span class="time-label">Minutos</span>
+                        </div>
+                        <div class="time-block">
+                            <span id="seconds">00</span>
+                            <span class="time-label">Segundos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-view hidden" id="player-view">
+                <div class="top-controls">
+                    <button id="back-btn" class="control-btn">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div class="theme-toggle">
+                        <input type="checkbox" id="theme-switch" class="theme-switch">
+                        <label for="theme-switch" class="theme-label">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <canvas id="visualization-canvas"></canvas>
+                    <div class="album-overlay">
+                        <img src="./albumcover/cover.jpg" alt="Portada del álbum" id="player-album-img">
+                    </div>
+                </div>
+
+                <div class="waveform-container" id="waveform"></div>
+
+                <div class="player-controls">
+                    <div class="time-display">
+                        <span id="current-time">0:00</span>
+                        <span id="total-time">0:00</span>
+                    </div>
+                    <div class="main-controls">
+                        <button id="player-play-btn" class="control-btn">
+                            <i class="fas fa-play" id="play-icon"></i>
+                        </button>
+                    </div>
+                    <div class="volume-control">
+                        <i class="fas fa-volume-up" id="volume-icon"></i>
+                        <input type="range" id="volume-slider" min="0" max="100" value="80">
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="presave-btn" class="action-btn">
+                        <i class="fas fa-bookmark"></i> Pre-save
+                    </button>
+                    <button id="share-btn" class="action-btn">
+                        <i class="fas fa-share-alt"></i> Compartir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Canvas para generar imagen para compartir -->
+    <canvas id="share-canvas" class="hidden"></canvas>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/wavesurfer.js@6.6.3/dist/wavesurfer.min.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/visualizer.js"></script>
+    <script src="./js/player.js"></script>
+    <script src="./js/share.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
