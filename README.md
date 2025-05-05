@@ -1,0 +1,1 @@
+Protoipo inicial de una aplicacion web para promocion de lanzamientos musicales.
