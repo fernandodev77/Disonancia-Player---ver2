@@ -347,7 +347,7 @@ body {
     box-shadow: 0 0 15px rgba(98, 0, 234, 0.2);
     animation: shadow-pulse 8s infinite ease-in-out 1s;
 }
-/* Animaciones */
+
 @keyframes shadow-pulse {
     0% {
         box-shadow: 0 0 20px rgba(3, 225, 255, 0.812);
