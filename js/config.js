@@ -39,6 +39,6 @@ const CONFIG = {
         // Hashtags para redes sociales
         hashtags: ["#NuevoLanzamiento", "#Música"],
         // URL para incluir en la imagen compartida (opcional)
-        url: "https://tuartista.com"
+        url: "@sonidogxlaxy"
     }
 };
