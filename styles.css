@@ -58,7 +58,7 @@ body {
     flex-direction: column;
     transition: all var(--transition-speed);
     box-shadow: 0 0 20px rgba(98, 0, 234, 0.3);
-    animation: shadow-pulse 8s infinite ease-in-out;
+    animation: shadow-pulse 8s infinite ease-in-out 2s;
 }
 
 @media (max-width: 768px) {
@@ -327,6 +327,7 @@ body {
     border-radius: 0; /* sin forma circular */
     overflow: hidden;
     z-index: 2;
+    animation: shadow-pulse 8s infinite ease-in-out 3s;
 }
 
 .album-overlay img {
@@ -336,6 +337,7 @@ body {
     border-radius: 0; /* sin forma circular */
     display: block;
 }
+
 
 #visualization-canvas {
     width: 100%;
