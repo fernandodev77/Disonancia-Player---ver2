@@ -37,7 +37,15 @@ function resizeCanvas() {
     const container = document.querySelector('.visualization-container');
     if (canvas && container) {
         canvas.width = container.offsetWidth;
-        canvas.height = container.offsetHeight;
+        // Reducir la altura del canvas para que ocupe menos espacio vertical
+        // Mantenemos un tamaño adecuado para las visualizaciones pero más compacto
+        canvas.height = Math.min(container.offsetWidth * 0.6, container.offsetHeight);
+        
+        // Asegurar que el canvas tenga suficiente altura para mostrar las visualizaciones
+        // pero sin desplazar demasiado los elementos inferiores
+        if (canvas.height > 300) {
+            canvas.height = 300; // Limitar altura máxima
+        }
     }
 }
 
