@@ -324,7 +324,7 @@ body {
     width: 100%;
     max-width: 100%;
     height: auto;
-    border-radius: 0; /* sin forma circular */
+    border-radius: 0; 
     overflow: hidden;
     z-index: 2;
     animation: shadow-pulse 8s infinite ease-in-out 3s;
@@ -334,7 +334,7 @@ body {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 0; /* sin forma circular */
+    border-radius: 0; 
     display: block;
 }
 
