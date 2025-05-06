@@ -127,6 +127,24 @@ function finishShareImage() {
         shareCtx.fillText(CONFIG.sharing.url, width / 2, height * 0.85);
     }
     
+    // Mostrar días restantes para el lanzamiento
+    const daysUntilRelease = getDaysUntilRelease();
+    if (daysUntilRelease > 0) {
+        // Crear un banner para los días restantes
+        const bannerY = height * 0.9;
+        const bannerHeight = 80;
+        
+        // Dibujar fondo del banner
+        shareCtx.fillStyle = CONFIG.visualizer.colors.primary;
+        shareCtx.fillRect(0, bannerY, width, bannerHeight);
+        
+        // Texto de días restantes
+        shareCtx.font = 'bold 40px Arial';
+        shareCtx.fillStyle = '#ffffff';
+        shareCtx.textAlign = 'center';
+        shareCtx.fillText(`¡${daysUntilRelease} días para el lanzamiento!`, width / 2, bannerY + 55);
+    }
+    
     // Compartir la imagen
     shareImageToSocial();
 }
@@ -184,4 +202,23 @@ function roundedImage(ctx, x, y, width, height, radius) {
     ctx.lineTo(x, y + radius);
     ctx.quadraticCurveTo(x, y, x + radius, y);
     ctx.closePath();
+}
+
+/**
+ * Calcula los días restantes hasta la fecha de lanzamiento
+ */
+function getDaysUntilRelease() {
+    const now = new Date();
+    const releaseDate = CONFIG.releaseDate;
+    
+    // Si la fecha de lanzamiento ya pasó, retornar 0
+    if (now >= releaseDate) {
+        return 0;
+    }
+    
+    // Calcular diferencia en días
+    const diffTime = Math.abs(releaseDate - now);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    return diffDays;
 }

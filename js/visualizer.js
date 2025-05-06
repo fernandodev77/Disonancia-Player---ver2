@@ -28,6 +28,27 @@ function initializeCanvas() {
     // Obtener configuración del visualizador
     visualizerType = CONFIG.visualizer.type;
     visualizerColors = CONFIG.visualizer.colors;
+    
+    // Configurar selector de tipo de visualización
+    const visualizerSelector = document.getElementById('visualizer-type');
+    if (visualizerSelector) {
+        // Establecer el valor inicial del selector
+        visualizerSelector.value = visualizerType;
+        
+        // Añadir evento para cambiar el tipo de visualización
+        visualizerSelector.addEventListener('change', function() {
+            visualizerType = this.value;
+            // Guardar preferencia en localStorage
+            localStorage.setItem('visualizerType', visualizerType);
+        });
+        
+        // Cargar preferencia guardada si existe
+        const savedType = localStorage.getItem('visualizerType');
+        if (savedType) {
+            visualizerType = savedType;
+            visualizerSelector.value = savedType;
+        }
+    }
 }
 
 /**
